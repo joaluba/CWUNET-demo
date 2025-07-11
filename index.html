@@ -172,6 +172,8 @@
     </div>
   </div>
 
+
+
   <!-- Inserted image -->
   <div id="diagram-container" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; align-items: flex-start;">
 
@@ -221,7 +223,7 @@
   </p>
 
     <p>
-Below, we present a listening test that compares the performance of our models against the baselines. The results show that our <span class="label cwunet2">CWUNET-stft</span> model outperforms the baselines and achieves the best results among all non-oracle models. The <span class="label cwunet2">CWUNET-mel</span> model, while effective in replicating reverberation, introduces metallic ringing artifacts that are not captured by objective metrics. The <span class="label baseline2">WPE+FINS</span> condition received the lowest scores, consistent with objective evaluations. 
+Below, we present a audio samples from the listening test comparing the performance of our models against the baselines. The results show that our <span class="label cwunet2">CWUNET-stft</span> model outperforms the baselines and achieves the best results among all non-oracle models. The <span class="label cwunet2">CWUNET-mel</span> model, while effective in replicating reverberation, introduces metallic ringing artifacts that are not captured by objective metrics. The <span class="label baseline2">WPE+FINS</span> condition received the lowest scores, consistent with objective evaluations. 
   </p>
 </div>
 
@@ -293,11 +295,16 @@ Below, we present a listening test that compares the performance of our models a
     <div id="diagram-container" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; align-items: flex-start;">
 
     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 400px;">
-      <img src="images/MUSHRAlufs.svg" alt="Another Figure" style="height: 400px; width: auto;">
-      <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">Figure 4: Results of MUSHRA listening test.</p>
+      <img src="images/MUSHRAlufs.svg" alt="Another Figure" style="height: 400px; width: 500px;">
+        <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem; width: 500px; text-align: justify; "> Figure 4. Results of the MUSHRA listening test: individual ratings overlaid with error bars. The mean of each condition is plotted as a point. The error bars represent the 95% confidence interval around the mean. Asterisks and <em>n.s.</em> indicate statistical significance (<em>n.s.</em> – not significant, * <em>p</em>&lt;0.05, *** <em>p</em>&lt;0.001). All remaining pairwise comparisons between conditions had the highest significance level (***).</p>
     </div>
-
   </div>
+
+      <div id="abstract-container">
+    <div id="abstract">
+    <p> Paper: <a href="" target="_blank" rel="noopener noreferrer" > link will be added after publication </a> </p>
+    <p> Code: <a href="https://github.com/joaluba/CWUNET " target="_blank" rel="noopener noreferrer" > https://github.com/joaluba/CWUNET </a> </p>
+    </div>
 
 </body>
 </html>
