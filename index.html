@@ -8,15 +8,14 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 2rem;
-      background: linear-gradient(to right, #ffe6f0, #ffd6eb);
-      color: #4a0033;
+      background-color: white;
+      color: #111;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 1rem;
       font-size: 2.2rem;
-      color: #b3005f;
     }
 
     #authors {
@@ -26,7 +25,7 @@
     }
 
     #authors a {
-      color: #cc007a;
+      color: black;
       text-decoration: none;
     }
 
@@ -34,127 +33,271 @@
       text-decoration: underline;
     }
 
-    #abstract {
+    /* Abstract container */
+    #abstract-container {
       max-width: 900px;
       margin: 0 auto 2rem auto;
+    }
+
+    /* Abstract title */
+    #abstract h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #666;
+    }
+
+    /* Abstract text */
+    #abstract {
       padding: 1rem 1.5rem;
-      background-color: #ffe0ef;
-      border-left: 6px solid #ff66a3;
+      background-color: #f6f6f6;
+      border-left: 6px solid #aaa;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(255, 0, 102, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.03);
       font-size: 1rem;
       line-height: 1.6;
+      color: #111;
+    }
+
+    /* Methods and Results sections container */
+    .section-small {
+      max-width: 900px;
+      margin: 0 auto 1.5rem auto;
+      padding: 0.8rem 1.5rem;
+      background-color: #fafafa;
+      border-left: 4px solid #ccc;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #555;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* Smaller title style for methods and results */
+    .section-small h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #666;
     }
 
     .example {
-      margin-bottom: 2.5rem;
-      background: white;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(255, 0, 102, 0.08);
-      max-width: 1000px;
+      margin-bottom: 2rem;
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #ddd;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .example h2 {
-      font-size: 1.4rem;
-      color: #cc007a;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
-      border-bottom: 2px dashed #ff80bf;
-      padding-bottom: 0.4rem;
+      color: #222;
     }
 
     .methods {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 1rem;
     }
 
     .method {
-      flex: 1 1 30%;
-      min-width: 220px;
-      background: #fff0f7;
-      padding: 0.8rem;
-      border-radius: 8px;
-      box-shadow: inset 0 0 5px rgba(255, 0, 102, 0.1);
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 0.5rem;
+      flex: 0 0 auto;
+      text-align: center;
     }
 
     .label {
-      font-weight: 600;
-      color: #99004d;
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
     }
+
+    audio {
+      width: 140px;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .label.input, .label.input2, .label.target, .label.style {
+      color: #ff980c;
+    }
+
+    .label.cwunet, .label.cwunet2 {
+      color: #ff0000;
+    }
+
+    .label.baseline,  .label.baseline2 {
+      color: #8826ff;
+    }
+
+    .label.oracle, .label.oracle2{
+      color: #b54ab5;
+    }
+
+/* Only these labels are inline */
+.label.input2,
+.label.cwunet2,
+.label.oracle2,
+.label.baseline2 {
+  display: inline;   /* these labels stay inline, no line breaks */
+  font-weight: bold; /* optionally make them bold */
+}
+
   </style>
 </head>
 <body>
-  <h1>Audio Demo – CWUNET for Acoustic Matching</h1>
+  <h1>Conditioned Wave-U-Net for Acoustic Matching </h1>
+  <h1> of Speech in Shared XR Environments</h1>
 
-  <div id="authors">
-    <p>Authors:
-      <a href="https://www.linkedin.com/in/yourname">Your Name</a>,
-      <a href="https://www.linkedin.com/in/colleague1">Colleague 1</a>,
-      <a href="https://www.linkedin.com/in/colleague2">Colleague 2</a>
-    </p>
+  <div id="authors" style="text-align: center; margin-bottom: 1.5rem;">
+    <p><strong>Joanna Luberadzka<sup>1</sup>, Enric Gusó<sup>1,2</sup>, Umut Sayin<sup>1</sup></strong></p>
+    <p><sup>1</sup> Eurecat, Centre Tecnològic de Catalunya, Tecnologies Multimèdia, Barcelona</p>
+    <p><sup>2</sup> Universitat Pompeu Fabra, Music Technology Group, Barcelona</p>
   </div>
 
-  <div id="abstract">
-    Mismatch in acoustics between users is a challenge for interaction in shared XR environments. It can be mitigated through acoustic matching, which traditionally involves dereverberation followed by convolution with a room impulse response (RIR) of the target space. However, the target RIR in such settings is usually unavailable. We propose to tackle this problem in an end-to-end manner using a Wave-U-Net encoder-decoder network with potential for real-time operation. We use FiLM layers to condition this network on an embedding extracted by a separate reverb encoder to match the acoustic properties between two arbitrarily chosen signals. We demonstrate that this approach outperforms two baseline methods and provides the flexibility to both dereverberate and rereverberate audio signals.
+  <div id="abstract-container">
+    <div id="abstract">
+          <h3>ABSTRACT</h3>
+      Mismatch in acoustics between users is a challenge for interaction in shared XR environments. It can be mitigated through acoustic matching, which traditionally involves dereverberation followed by convolution with a room impulse response (RIR) of the target space. However, the target RIR in such settings is usually unavailable. We propose to tackle this problem in an end-to-end manner using a Wave-U-Net encoder-decoder network with potential for real-time operation. We use FiLM layers to condition this network on an embedding extracted by a separate reverb encoder to match the acoustic properties between two arbitrarily chosen signals. We demonstrate that this approach outperforms two baseline methods and provides the flexibility to both dereverberate and rereverberate audio signals.
+    </div>
   </div>
+
+  <!-- Inserted image -->
+  <div id="diagram-container" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; align-items: flex-start;">
+
+    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 400px;">
+      <img src="images/problem.png" alt="Another Figure" style="height: 300px; width: auto;">
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">Figure 1: Acoustic matching in XR.</p>
+    </div>
+
+    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 500px;">
+      <img src="images/network.svg" alt="CWUNET Diagram" style="height: 300px; width: 400px;">
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">Figure 2: Conditional wave-u-net structure.</p>
+    </div>
+
+    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 400px;">
+      <img src="images/block.svg" alt="Another Figure" style="height: 300px; width: 350px;">
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">Figure 3: Data generation and training.</p>
+    </div>
+
+  </div>
+
+
+<!--
+<div class="section-small" id="listeningtest-section">
+  <h3>LISTENING TEST</h3>
+  <p>
+    Initial listening suggested that perceptual differences between models were not always aligned with objective metric scores. In general, methods that used FINS sounded more natural. However, even the semi-oracle case introduced a specific coloration that caused the output to perceptually deviate from the target.
+    In contrast, our models were able to closely match the spectral content of the target but introduced distortions that reduced perceived similarity. This was particularly noticeable for CWUNET-mel, which effectively replicated the reverberation but introduced a strong metallic ringing artifact. Interestingly, this type of distortion was not captured by the perceptual metrics.
+    To explore these observations in more detail, we conducted an additional MUSHRA-based listening test <a href="#ref-series2014method">[ITU-R BS.1534-1]</a>. The test included nine examples with clear differences in reverberation between the content and style speech.<sup><a href="#footnote1">1</a></sup> In four examples, the transformation involved converting a highly reverberant signal to a less reverberant one (dereverberation), while in the remaining five, it involved converting a slightly reverberant signal to a more reverberant one (rereverberation).
+    Twelve participants, including seven expert listeners, took part in the study. In each trial, participants evaluated seven audio signals played over headphones: five reverberation-matching methods (our two model versions and three baselines), a hidden low anchor (content sound), and a hidden reference (target sound). They were asked to rate the similarity of the reverberation in each sample to that of the reference signal (target).
+  </p>
+</div>
+-->
+
+<div class="section-small" id="methods-section">
+  <p>
+    In this work, we propose a time-domain end-to-end acoustic space transfer approach that matches the acoustic properties between two arbitrarily chosen reverberant speech signals. Our method CWUNET consists of three main components (see Figure 2):
+  </p>
+  <ul>
+    <li>A time-domain convolutional reverb encoder that extracts information about the acoustic space from the reference speech.</li>
+    <li>A time-domain convolutional encoder-decoder that modifies the input signal to match the target acoustic properties.</li>
+    <li>A conditioning mechanism that enables the use of target space information in the transformation process.</li>
+  </ul>
+  <p>
+    We train the proposed approach using two different loss functions: multi-resolution stft loss (<span class="label cwunet2">CWUNET-stft</span>) and multi-resolution logmel loss (<span class="label cwunet2">CWUNET-mel</span>) and compare it against two baselines:
+    (1) a combination of weighted prediction error (WPE) dereverberation <a href="https://ieeexplore.ieee.org/abstract/document/5428853" target="_blank" rel="noopener noreferrer" >[Yoshioka et al., 2010]</a> and DNN-based blind single-channel RIR estimation <a href="">[Steinmetz et al., 2021]</a> (<span class="label baseline2">WPE+FINS</span>), and
+    (2) a combination of DNN-based dereverberation <a href="">[Schröter et al., 2022] </a>with the same RIR estimation method (<span class="label baseline2">DFNET+FINS</span>). Additionally, we evaluate our models against a semi-oracle case that combines estimated RIRs with anechoic signals (<span class="label oracle2">oracle+FINS</span>).
+  </p>
+
+    <p>
+Below, we present a listening test that compares the performance of our models against the baselines. The results show that our <span class="label cwunet2">CWUNET-stft</span> model outperforms the baselines and achieves the best results among all non-oracle models. The <span class="label cwunet2">CWUNET-mel</span> model, while effective in replicating reverberation, introduces metallic ringing artifacts that are not captured by objective metrics. The <span class="label baseline2">WPE+FINS</span> condition received the lowest scores, consistent with objective evaluations. 
+  </p>
+</div>
 
   <div id="content"></div>
+<script>
+  const numExamples = 9;
+  const contentDiv = document.getElementById('content');
 
-  <script>
-    const numExamples = 9;
-    const numMethods = 7;
-    const methodNames = [
-      "Input (s1r1)",
-      "Target (s1r2)",
-      "CWUNET-stft",
-      "CWUNET-mel",
-      "WPE+FINS",
-      "DFNET+FINS",
-      "Oracle+FINS"
-    ];
+  const transfType = ["Rereverberation", "Rereverberation", "Rereverberation", "Dereverberation", "Dereverberation", "Dereverberation", "Dereverberation", "Dereverberation", "Rereverberation", "Rereverberation"];
 
-    const contentDiv = document.getElementById('content');
+  const fileInfo = [
+    { label: "Content", suffix: "content", class: "input" },
+    { label: "Style", suffix: "style", class: "style" },
+    { label: "Target", suffix: "target", class: "target" },
+    { label: "CWUNET-stft", suffix: "prediction_stft+wave", class: "cwunet" },
+    { label: "CWUNET-mel", suffix: "prediction_logmel+wave", class: "cwunet" },
+    { label: "WPE+FINS", suffix: "prediction_wpe+fins", class: "baseline" },
+    { label: "DFNET+FINS", suffix: "prediction_dfnet+fins", class: "baseline" },
+    { label: "Oracle+FINS", suffix: "prediction_anecho+fins", class: "oracle" }
+  ];
 
-    for (let i = 1; i <= numExamples; i++) {
-      const exampleDiv = document.createElement('div');
-      exampleDiv.className = 'example';
+  for (let i = 1; i <= numExamples; i++) {
 
-      const title = document.createElement('h2');
-      title.textContent = `Example ${i}`;
-      exampleDiv.appendChild(title);
+    const exampleDiv = document.createElement('div');
+    exampleDiv.className = 'example';
 
-      const methodsDiv = document.createElement('div');
-      methodsDiv.className = 'methods';
+    const title = document.createElement('h2');
+    title.textContent = `Sample ${i} (${transfType[i-1]})`; ;
+    exampleDiv.appendChild(title);
 
-      for (let j = 1; j <= numMethods; j++) {
-        const methodDiv = document.createElement('div');
-        methodDiv.className = 'method';
+    const methodsDiv = document.createElement('div');
+    methodsDiv.className = 'methods';
 
-        const label = document.createElement('span');
-        label.className = 'label';
-        label.textContent = methodNames[j - 1];
-        methodDiv.appendChild(label);
+    fileInfo.forEach(entry => {
+      const methodDiv = document.createElement('div');
+      methodDiv.className = 'method';
 
-        const audio = document.createElement('audio');
-        audio.controls = true;
-        audio.src = `/audiofiles/example${i}_method${j}.wav`;
-        methodDiv.appendChild(audio);
+      const label = document.createElement('span');
+      label.className = `label ${entry.class}`;
+      label.textContent = entry.label;
 
-        methodsDiv.appendChild(methodDiv);
-      }
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.src = `sounds/Mushra-LUFS/Sample${i}/sample${i}_${entry.suffix}.wav`;
 
-      exampleDiv.appendChild(methodsDiv);
-      contentDiv.appendChild(exampleDiv);
-    }
-  </script>
+      methodDiv.appendChild(label);
+      methodDiv.appendChild(audio);
+      methodsDiv.appendChild(methodDiv);
+    });
+
+    exampleDiv.appendChild(methodsDiv);
+    contentDiv.appendChild(exampleDiv);
+  }
+</script>
+
+
+<!-- 
+<div class="section-small" id="results-section">
+  <h3>RESULTS</h3>
+  <p>
+    The semi-oracle case (<span class="label oracle2">oracle+FINS</span>) received significantly higher human ratings than all other methods (pairwise comparisons: vs. <span class="label cwunet2">CWUNET-stft</span>, <em>p</em> = 5.0e−3; vs. <span class="label baseline2">DFNET+FINS</span>, <em>p</em> = 6.3e−9; vs. <span class="label cwunet2">CWUNET-mel</span>, <em>p</em> = 9.2e−12; vs. <span class="label baseline2">WPE+FINS</span>, <em>p</em> = 3.1e−18).
+    The second-highest rated method was our <span class="label cwunet2">CWUNET-stft</span> model, which achieved the best results among all non-oracle models. Next,  <span class="label baseline2">DFNET+FINS</span> showed slightly lower performance, though the difference was not statistically significant (<em>p</em> = 2.4e−1).
+    According to human evaluations, our <span class="label cwunet2">CWUNET-mel</span> received significantly lower scores than  <span class="label baseline2">DFNET+FINS</span> (<em>p</em> = 2.0e−4), suggesting that objective metrics may overestimate the performance of our models—either because they fail to capture certain distortions or because they overemphasize spectral differences, thereby penalizing the baseline. This discrepancy could also stem from the similarity between the evaluation metrics and the loss functions used during training: our models may benefit from having aligned optimization objectives and evaluation criteria.
+    The <span class="label baseline2">WPE+FINS</span> condition received the lowest scores, consistent with objective evaluations. This may be due to the limited effectiveness of WPE when applied as a single-channel dereverberation method <a href="#ref-zhao2024multi">[Zhao et al., 2024]</a>, <a href="#ref-koo2021reverb">[Koo et al., 2021]</a>.
+  </p>
+</div>
+-->
+
+    <div id="diagram-container" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; align-items: flex-start;">
+
+    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 400px;">
+      <img src="images/MUSHRAlufs.svg" alt="Another Figure" style="height: 400px; width: auto;">
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">Figure 4: Results of MUSHRA listening test.</p>
+    </div>
+
+  </div>
+
 </body>
 </html>
-
